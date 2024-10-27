@@ -26,6 +26,8 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_playerHolder.Variable == null)
+            return;
         Transform target = _houseDoorHolder.Variable;
         Transform closestPlant = FindCLosestPlant();
         float distance = Vector2.Distance(transform.position, _playerHolder.Variable.position);
