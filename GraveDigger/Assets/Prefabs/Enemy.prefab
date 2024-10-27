@@ -325,8 +325,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.15894479}
-  m_Radius: 0.24105519
+  m_Offset: {x: 0, y: -0.012344956}
+  m_Radius: 0.38765502
 --- !u!114 &6032496546589096849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +502,16 @@ MonoBehaviour:
   _playerHolder: {fileID: 11400000, guid: d44defa3c013fa84b9ef729164c7447f, type: 2}
   _houseDoorHolder: {fileID: 11400000, guid: 030dedfc69cb9414fb3cb41778826192, type: 2}
   _chasePlayerDistance: 10
+  _playerPriotitizeDistance: 1
+  _player:
+    serializedVersion: 2
+    m_Bits: 64
+  _plants:
+    serializedVersion: 2
+    m_Bits: 1024
+  _zombies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &645935776202996812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +528,7 @@ MonoBehaviour:
   _radius: 0.5
   _attackLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1344
   _damage: 1
   _waitTime: 2
 --- !u!1 &7155701385032720178

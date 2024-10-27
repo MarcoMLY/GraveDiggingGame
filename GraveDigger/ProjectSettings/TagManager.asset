@@ -15,8 +15,8 @@ TagManager:
   - Enemy
   - HouseDoor
   - Projectile
-  - 
-  - 
+  - Plant
+  - CannotPlacePlant
   - 
   - 
   - 

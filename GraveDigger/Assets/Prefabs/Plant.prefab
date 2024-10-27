@@ -40,8 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4309858105197561814}
+  - component: {fileID: -7864665625113370515}
   - component: {fileID: 913989357312956948}
-  m_Layer: 0
+  - component: {fileID: 6843379980812975947}
+  m_Layer: 10
   m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,9 +63,58 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4827430122603372091}
+  - {fileID: 6841150193145997749}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7864665625113370515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897540009082362489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f84ea9dfcb1e22842a84a253bd26e3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TotalHealth>k__BackingField: 10
+  <CurrentHealth>k__BackingField: 0
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 219649137176236088}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlantDamaged
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7864665625113370515}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: DestroyUnit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _immuneLayers:
+    serializedVersion: 2
+    m_Bits: 576
+  _immuneTime: 0.5
 --- !u!114 &913989357312956948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fd02cbb75b41343925f1241e2b8343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootRadius: 5
+  _shootRadius: 8
   _waitTime: 2
   _lerpTime: 6
   _enemyLayer:
@@ -85,6 +136,42 @@ MonoBehaviour:
   _bullet: {fileID: 3506633037066328560, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
   _sprite: {fileID: 4827430122603372091}
   _shootPos: {fileID: 5047234307187599880}
+--- !u!58 &6843379980812975947
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897540009082362489}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.005730808}
+  m_Radius: 0.45701855
 --- !u!1 &3353794261001339188
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +256,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4473801457506805876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6841150193145997749}
+  - component: {fileID: 700860536794231497}
+  m_Layer: 11
+  m_Name: CannotPlacePlant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6841150193145997749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473801457506805876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4309858105197561814}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &700860536794231497
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473801457506805876}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.008596182}
+  m_Radius: 0.60888636
 --- !u!1 &8279489557751051623
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827430122603372091}
   - component: {fileID: 3254460021895478348}
+  - component: {fileID: 219649137176236088}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -255,3 +411,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &219649137176236088
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279489557751051623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 179c3f3113e9ac842a1ca4f0cc8fdf30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

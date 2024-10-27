@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Data;
 using UnityEngine.UIElements;
@@ -11,6 +12,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private Vector3 _offset;
     [SerializeField] private float _mouseOffsetMultiplier = 2f, _smoothness = 0.1f;
+    [SerializeField] private float _minX;
+    [SerializeField] private float _maxX;
+    [SerializeField] private float _minY;
+    [SerializeField] private float _maxY;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,18 @@ public class CameraController : MonoBehaviour
 
         Vector2 directionToMouse = (mousePos - playerPos).normalized;
         Vector2 offsetedPosition = playerPos + (directionToMouse * _mouseOffsetMultiplier);
-        Vector3 finalPos = new Vector3(offsetedPosition.x, offsetedPosition.y, 0);
-        transform.position = Vector3.Slerp(transform.position, finalPos + _offset, Time.deltaTime / _smoothness);          
+        float finalX = Mathf.Clamp(offsetedPosition.x + _offset.x, _minX, _maxX);
+        float finalY = Mathf.Clamp(offsetedPosition.y + _offset.y, _minY, _maxY);
+        Vector3 finalPos = new Vector3(finalX, finalY, _offset.z);
+        transform.position = Vector3.Slerp(transform.position, finalPos, Time.deltaTime / _smoothness);          
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(_minX, _minY), new Vector2(_minX, _maxY));
+        Gizmos.DrawLine(new Vector2(_minX, _maxY), new Vector2(_maxX, _maxY));
+        Gizmos.DrawLine(new Vector2(_maxX, _maxY), new Vector2(_maxX, _minY));
+        Gizmos.DrawLine(new Vector2(_maxX, _minY), new Vector2(_minX, _minY));
     }
 }
