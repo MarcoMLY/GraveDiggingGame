@@ -388,7 +388,7 @@ MonoBehaviour:
   _immuneLayers:
     serializedVersion: 2
     m_Bits: 0
-  _immuneTime: 0
+  _immuneTime: 0.5
 --- !u!114 &3268364675913523258
 MonoBehaviour:
   m_ObjectHideFlags: 0
