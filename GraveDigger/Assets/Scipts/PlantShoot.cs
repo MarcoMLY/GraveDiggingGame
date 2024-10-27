@@ -15,6 +15,9 @@ public class PlantShoot : MonoBehaviour
     private void Awake()
     {
         _waitTimer = _waitTime;
+        Vector2 up = transform.up;
+        transform.up = Vector2.up;
+        _sprite.up = up;
     }
 
     // Update is called once per frame

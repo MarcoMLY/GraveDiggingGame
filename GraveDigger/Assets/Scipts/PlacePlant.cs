@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Data;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlacePlant : MonoBehaviour
 {
-    [SerializeField] private GameObject _plant;
+    [SerializeField] private GameObject[] _plants;
+    [SerializeField] private int[] _plantFoodNeeded;
     [SerializeField] private float _plantRadius;
     [SerializeField] private LayerMask _cannotPlacePlant;
+    [SerializeField] private IntHolder _plantFood, _plantIndex;
     private CharacterManager _playerManager;
     private InputAction _placePlant;
+
+    [SerializeField] private UnityEvent _cantPlacePlant;
+    [SerializeField] private UnityEvent _notEnoughPlantFood;
 
     private void Awake()
     {
@@ -27,14 +34,28 @@ public class PlacePlant : MonoBehaviour
     {
         _placePlant.performed -= Place;
     }
+    
+    private bool EnoughPlantFood()
+    {
+        return _plantFood.Variable >= _plantFoodNeeded[_plantIndex.Variable];
+    }
 
     private void Place(InputAction.CallbackContext context)
     {
-        if (!CanPlacePlant())
+        if (!EnoughPlantFood())
+        {
+            _notEnoughPlantFood?.Invoke();
             return;
+        }
+        if (!CanPlacePlant())
+        {
+            _cantPlacePlant?.Invoke();
+            return;
+        }
+        _plantFood.AddAmount(-_plantFoodNeeded[_plantIndex.Variable]);
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 directionToMouse = (mousePos - transform.position).normalized;
-        Transform plant = Instantiate(_plant, transform.position, Quaternion.identity).transform;
+        Transform plant = Instantiate(_plants[_plantIndex.Variable], transform.position, Quaternion.identity).transform;
         plant.up = new Vector3(directionToMouse.x, directionToMouse.y, 0);
     }
 

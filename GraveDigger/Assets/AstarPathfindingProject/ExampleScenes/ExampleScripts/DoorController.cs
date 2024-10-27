@@ -15,7 +15,7 @@ namespace Pathfinding.Examples {
 
 		public void Start () {
 			// Capture the bounds of the collider while it is closed
-			bounds = GetComponent<Collider>().bounds;
+			bounds = GetComponent<Collider2D>().bounds;
 
 			// Initially open the door
 			SetState(open);
@@ -46,13 +46,6 @@ namespace Pathfinding.Examples {
 				guo.updatePhysics = false;
 
 				AstarPath.active.UpdateGraphs(guo);
-			}
-
-			// Play door animations
-			if (open) {
-				GetComponent<Animation>().Play("Open");
-			} else {
-				GetComponent<Animation>().Play("Close");
 			}
 		}
 	}
