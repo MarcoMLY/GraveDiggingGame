@@ -255,6 +255,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156811959}
   m_CullTransparentMesh: 1
+--- !u!1 &254004110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8496377269367212825, guid: 45d5f562805d42c4188d62a1272544a9, type: 3}
+  m_PrefabInstance: {fileID: 2180097095152982162}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &279239122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,7 +4476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2129731799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4486,6 +4491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 6279234962879968612, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
   zombieParent: {fileID: 715282702}
+  zombieSpawn: {fileID: 254004110}
 --- !u!4 &2129731800
 Transform:
   m_ObjectHideFlags: 0

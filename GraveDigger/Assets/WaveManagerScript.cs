@@ -8,6 +8,8 @@ public class WaveManagerScript : MonoBehaviour
 
 	[SerializeField] GameObject zombiePrefab;
 	[SerializeField] GameObject zombieParent;
+	[SerializeField] GameObject zombieSpawn;
+
 	int currentZombies = 0;
 	int currentWave = 0;
 	int newZombies = 2;
@@ -35,16 +37,12 @@ public class WaveManagerScript : MonoBehaviour
 
 			for (int i = 0; i < newZombies; i++)
 			{
-				GameObject clone = GameObject.Instantiate(zombiePrefab);
-				clone.transform.SetParent(zombieParent.transform, true);
-
-				StartCoroutine(wait());
+				StartCoroutine(spawn());
 			}
 
 			currentZombies = newZombies;
 			waveEnded = false;
 		}
-
 
 		if (currentZombies == 0)
 		{
@@ -53,8 +51,16 @@ public class WaveManagerScript : MonoBehaviour
 		}
 	}
 
-	IEnumerator wait()
+	IEnumerator spawn()
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(Random.Range(0.05f, 2f));
+
+		GameObject clone = Instantiate(zombiePrefab);
+		clone.transform.SetParent(zombieParent.transform, false);
+
+		int x = Random.Range(-5, 5);
+		int y = Random.Range(-5, 5);
+		Vector3 spawnpoint = new Vector3(zombieSpawn.transform.position.x + x, zombieSpawn.transform.position.y + y, zombieSpawn.transform.position.z);
+		clone.transform.position = spawnpoint;
 	}
 }
