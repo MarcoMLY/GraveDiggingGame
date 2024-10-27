@@ -7,7 +7,7 @@ using UnityEngine.Data;
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private TransformHolder _playerHolder, _houseDoorHolder;
-    [SerializeField] private float _chasePlayerDistance, _playerPriotitizeDistance;
+    [SerializeField] private float _chasePlayerDistance, _chasePlantDistance, _playerPriotitizeDistance;
     [SerializeField] private LayerMask _player, _plants;
     [SerializeField] private LayerMask _zombies;
     private AIPath _aiPath;
@@ -48,7 +48,7 @@ public class EnemyMove : MonoBehaviour
 
     private Transform FindCLosestPlant()
     {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, _chasePlayerDistance, _plants);
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, _chasePlantDistance, _plants);
         Transform closestPlant = null;
         float closestDistance = Mathf.Infinity;
         foreach (Collider2D plant in hit)

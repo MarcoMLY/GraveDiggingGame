@@ -502,6 +502,7 @@ MonoBehaviour:
   _playerHolder: {fileID: 11400000, guid: d44defa3c013fa84b9ef729164c7447f, type: 2}
   _houseDoorHolder: {fileID: 11400000, guid: 030dedfc69cb9414fb3cb41778826192, type: 2}
   _chasePlayerDistance: 10
+  _chasePlantDistance: 4
   _playerPriotitizeDistance: 1
   _player:
     serializedVersion: 2
