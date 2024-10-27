@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.Controls;
 
 public class Vine : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class Vine : MonoBehaviour
         if (!_notMoving)
             MoveFoward();
         if (_notMoving)
-
+            MoveFirstPointFoward();
         RenderVine();
         RaycastHit2D[] hit = Physics2D.CircleCastAll(_lineRenderer.GetPosition(0), _hitbox.x, transform.up, Vector2.Distance(_lineRenderer.GetPosition(0), _lineRenderer.GetPosition(1)));
 
@@ -67,8 +68,7 @@ public class Vine : MonoBehaviour
 
     private void MoveFirstPointFoward()
     {
-        Vector3 fowardDirection = transform.up * _speed * Time.deltaTime;
-        _lineRenderer.SetPosition(0, transform.position + fowardDirection);
+        _lineRenderer.SetPosition(0, Vector2.MoveTowards(_lineRenderer.GetPosition(0), _lineRenderer.GetPosition(1), Time.deltaTime * _speed));
     }
 
     private void StopMoving()

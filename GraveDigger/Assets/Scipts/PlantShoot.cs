@@ -15,8 +15,8 @@ public class PlantShoot : MonoBehaviour
     private void Awake()
     {
         _waitTimer = _waitTime;
-        Vector2 up = transform.up;
-        transform.up = Vector2.up;
+        Vector3 up = transform.up;
+        transform.up = Vector3.up;
         _sprite.up = up;
     }
 
@@ -42,6 +42,12 @@ public class PlantShoot : MonoBehaviour
     
     private void CheckCloseEnemies()
     {
+        if (transform.up != Vector3.up)
+        {
+            Vector2 up = transform.up;
+            transform.up = Vector2.up;
+            _sprite.up = up;
+        }
         float shortestDistance = Mathf.Infinity;
         Transform enemyTransform = null;
         Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, _shootRadius, _enemyLayer);
