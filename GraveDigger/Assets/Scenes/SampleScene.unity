@@ -2750,7 +2750,6 @@ GameObject:
   - component: {fileID: 1371212442}
   - component: {fileID: 1371212445}
   - component: {fileID: 1371212446}
-  - component: {fileID: 1371212448}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -2971,13 +2970,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackPos: {fileID: 1387530354}
-  _radius: 0.6
+  _radius: 0.5
   _attackLayer:
     serializedVersion: 2
     m_Bits: 4224
   _damage: 1
-  _waitTime: 1
-  _distanceToPlayer: 0.8
+  _waitTime: 2
+  _distanceToPlayer: 0.5
 --- !u!114 &1371212446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,34 +3091,6 @@ MonoBehaviour:
   _immuneTime: 0.5
   _currentHealth: {fileID: 11400000, guid: d81102d43c93fb945864e03869a0567d, type: 2}
   _maxHealth: {fileID: 11400000, guid: d00a98244161c4e428dcafb5a3d01a31, type: 2}
---- !u!114 &1371212448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371212434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31dbedafd99fe864889d33d3a91d732d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1371212447}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: DestroyUnit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _gameEvent: {fileID: 11400000, guid: 707c120ef44fe7e45907bb548e6bc85c, type: 2}
 --- !u!1 &1387530353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,7 +4447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2129731799
 MonoBehaviour:
   m_ObjectHideFlags: 0

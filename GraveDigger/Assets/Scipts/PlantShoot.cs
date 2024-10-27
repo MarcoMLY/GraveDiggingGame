@@ -29,14 +29,14 @@ public class PlantShoot : MonoBehaviour
             Vector2 toEnemyDirection = _currentEnemy.position - transform.position;
             _sprite.up = Vector2.Lerp(_sprite.up, toEnemyDirection, _lerpTime * Time.deltaTime);
         }
-
-        if (_currentEnemy == null)
-            return;
         if (_waitTimer > 0)
         {
             _waitTimer -= Time.deltaTime;
             return;
         }
+
+        if (_currentEnemy == null)
+            return;
         Shoot();
     }
     

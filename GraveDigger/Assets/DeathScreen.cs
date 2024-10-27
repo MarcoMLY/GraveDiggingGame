@@ -17,6 +17,7 @@ public class DeathScreen : MonoBehaviour
 
     public void StartDeathScreen(string deathText)
     {
+        Debug.Log("!");
         _text.text = deathText;
         StartCoroutine(FadeIn());
     }
