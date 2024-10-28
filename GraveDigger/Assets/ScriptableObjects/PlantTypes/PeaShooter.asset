@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   Name: Pea Shooter
-  Sprite: {fileID: 21300000, guid: ba6dc9e2bb114aa46a392528f10c13d0, type: 3}
+  Sprite: {fileID: 21300000, guid: a952f248fea98a3418ca4c229ba53bc3, type: 3}
+  FoodNeeded: 2

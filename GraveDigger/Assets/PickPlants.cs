@@ -10,6 +10,7 @@ public class PickPlants : MonoBehaviour
     [SerializeField] private PlantType[] _plantTypes;
     [SerializeField] private IntHolder _plantTypeIndex;
     [SerializeField] private Image _plantImage, _highlight;
+    [SerializeField] private TextMeshProUGUI _foodAmount;
     [SerializeField] private Vector3 _higlightOffset;
     private List<Transform> _plantTransforms = new List<Transform>();
 
@@ -25,12 +26,15 @@ public class PickPlants : MonoBehaviour
         _plantImage.sprite = _plantTypes[0].Sprite;
         _plantTransforms.Add(_plantImage.transform);
         _highlight.transform.position = _plantTransforms[0].position + _higlightOffset;
+        _foodAmount.text = _plantTypes[0].FoodNeeded.ToString();
         _plantTypeIndex.ChangeData(0);
     }
 
     public void AddNextPlantType()
     {
         Transform newPlant = Instantiate(_plantImage.gameObject, _plantImage.transform.position + new Vector3(_distances * _plantTransforms.Count, 0, 0), Quaternion.identity, transform).transform;
+        newPlant.GetComponent<Image>().sprite = _plantTypes[_plantTypes.Length - 1].Sprite;
+        newPlant.GetChild(0).GetComponent<TextMeshProUGUI>().text = _plantTypes[_plantTypes.Length - 1].FoodNeeded.ToString();
         _plantTransforms.Add(newPlant);
         _plantTypeAddedText.text = "you got the " + _plantTypes[_plantTypes.Length - 1].name + " plant!";
         _plantTypeAdded.SetTrigger("NewPlant");

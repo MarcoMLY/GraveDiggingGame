@@ -17,20 +17,24 @@ PrefabInstance:
       value: VineShooter Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3254460021895478348, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c658cff6b9cff554781d4d72bd152b3c, type: 3}
+    - target: {fileID: 3254460021895478348, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_Color.b
-      value: 0.07742971
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3254460021895478348, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_Color.g
-      value: 0.5660378
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3254460021895478348, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_Color.r
-      value: 0.136855
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4309858105197561814, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4309858105197561814, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_LocalPosition.x

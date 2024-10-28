@@ -8,4 +8,5 @@ public class PlantType : ScriptableObject
     [SerializeField] public int index;
     [SerializeField] public string Name;
     [SerializeField] public Sprite Sprite;
+    [SerializeField] public int FoodNeeded;
 }

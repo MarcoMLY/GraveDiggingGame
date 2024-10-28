@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlacePlant : MonoBehaviour
 {
     [SerializeField] private GameObject[] _plants;
-    [SerializeField] private int[] _plantFoodNeeded;
+    [SerializeField] private PlantType[] _plantTypes;
     [SerializeField] private float _plantRadius;
     [SerializeField] private LayerMask _cannotPlacePlant;
     [SerializeField] private IntHolder _plantFood, _plantIndex;
@@ -37,7 +37,7 @@ public class PlacePlant : MonoBehaviour
     
     private bool EnoughPlantFood()
     {
-        return _plantFood.Variable >= _plantFoodNeeded[_plantIndex.Variable];
+        return _plantFood.Variable >= _plantTypes[_plantIndex.Variable].FoodNeeded;
     }
 
     private void Place(InputAction.CallbackContext context)
@@ -52,7 +52,7 @@ public class PlacePlant : MonoBehaviour
             _cantPlacePlant?.Invoke();
             return;
         }
-        _plantFood.AddAmount(-_plantFoodNeeded[_plantIndex.Variable]);
+        _plantFood.AddAmount(-_plantTypes[_plantIndex.Variable].FoodNeeded);
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 directionToMouse = (mousePos - transform.position).normalized;
         Transform plant = Instantiate(_plants[_plantIndex.Variable], transform.position, Quaternion.identity).transform;
