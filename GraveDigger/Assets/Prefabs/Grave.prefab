@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 8089800329547491282}
   - component: {fileID: 4200558860796030729}
   - component: {fileID: 2655727805223786332}
+  - component: {fileID: -5279166658755296600}
   m_Layer: 12
   m_Name: Grave
   m_TagString: Untagged
@@ -369,6 +370,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _droppedMaterial: {fileID: 3259199452190006124, guid: 6d464ef6a3350da4db2b0cb1a4a248cc, type: 3}
   _dropChance: 100
+--- !u!114 &-5279166658755296600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496377269367212825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96746d5e0d894f24a95efa7e9964bf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformList: {fileID: 11400000, guid: 2532d2b42d4cd164f8dd897b7adc3298, type: 2}
 --- !u!1001 &3790873114217855801
 PrefabInstance:
   m_ObjectHideFlags: 0

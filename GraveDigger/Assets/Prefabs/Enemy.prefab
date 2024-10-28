@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 4769101937836017943}
   - component: {fileID: 645935776202996812}
   - component: {fileID: 6599549503041678657}
+  - component: {fileID: -1541131949906286259}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -560,6 +561,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _droppedMaterial: {fileID: 8750312176826866978, guid: a28d2e28472f93344aa0a31184556464, type: 3}
   _dropChance: 50
+--- !u!114 &-1541131949906286259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279234962879968612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96746d5e0d894f24a95efa7e9964bf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformList: {fileID: 11400000, guid: 59e5a41bb9a65ab44aea670300dd1235, type: 2}
 --- !u!1 &7155701385032720178
 GameObject:
   m_ObjectHideFlags: 0
