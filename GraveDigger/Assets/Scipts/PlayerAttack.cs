@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerAttack : MonoBehaviour
     private CharacterManager _playerManager;
     private InputAction _attack;
     private float _waitTimer;
+
+    [SerializeField] private UnityEvent _onPlayerAttack;
+    [SerializeField] private UnityEvent _onSuccesfulHit;
 
     private void Awake()
     {
@@ -44,9 +48,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
+        if (_waitTimer > 0)
+            return;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _attackPos.position = transform.position + ((mousePos - transform.position) * _distanceToPlayer);
         Collider2D[] collider = Physics2D.OverlapCircleAll(_attackPos.position, _radius, _attackLayer);
+        bool succesful = false;
         foreach (Collider2D hit in collider)
         {
             IDameagable damageable = hit.GetComponent<IDameagable>();
@@ -54,8 +61,12 @@ public class PlayerAttack : MonoBehaviour
             {
                 _waitTimer = _waitTime;
                 damageable.Damage(_damage, gameObject, false);
+                succesful = true;
             }
         }
+        if (succesful)
+            _onSuccesfulHit?.Invoke();
+        _onPlayerAttack?.Invoke();
     }
 
     private void OnDrawGizmosSelected()

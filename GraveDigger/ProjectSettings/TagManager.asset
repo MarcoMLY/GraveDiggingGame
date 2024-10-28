@@ -18,7 +18,7 @@ TagManager:
   - Plant
   - CannotPlacePlant
   - Grave
-  - 
+  - NotPixelated
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Backround
+    uniqueID: 592264335
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1171342427
+    locked: 0
+  - name: UI
+    uniqueID: 934341721
     locked: 0
