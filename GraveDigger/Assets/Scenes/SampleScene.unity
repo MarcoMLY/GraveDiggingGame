@@ -1742,7 +1742,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.2
+          m_FloatArgument: 0.15
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2109,8 +2109,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 829250603}
   - {fileID: 393279786}
+  - {fileID: 829250603}
   m_Father: {fileID: 519420032}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
