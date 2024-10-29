@@ -20,6 +20,34 @@ PrefabInstance:
       propertyPath: _controlPrompt
       value: stone meal             press E
       objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 6938472ef070d9f4f94958cb07e22f14, type: 2}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventTriggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2208221141178252864, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -80,11 +108,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6051346131169901378, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: '_sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c60568de8a238649b9e557734c4c102, type: 3}
     - target: {fileID: 6820881261841711182, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: m_Name
       value: StoneMeal Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 281931084387321794, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

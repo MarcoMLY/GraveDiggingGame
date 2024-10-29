@@ -21,5 +21,8 @@ namespace UnityEngine.Events
 
     [System.Serializable]
     public class UnityEventCollider2D : UnityEvent<Collider2D> { }
+
+    [System.Serializable]
+    public class UnityEventTransform : UnityEvent<Transform> { }
 }
 

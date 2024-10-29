@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 645935776202996812}
   - component: {fileID: 6599549503041678657}
   - component: {fileID: -1541131949906286259}
+  - component: {fileID: 2673712790322385449}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -322,6 +323,18 @@ MonoBehaviour:
           m_StringArgument: EnemyDamaged
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6bb8c7d2ce972a645944a432142a1b45, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyDamaged
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -341,6 +354,21 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: DestroyUnit
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDieDirection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2673712790322385449}
+        m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
+        m_MethodName: SpawnSplat
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -537,6 +565,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transformList: {fileID: 11400000, guid: 59e5a41bb9a65ab44aea670300dd1235, type: 2}
+--- !u!114 &2673712790322385449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279234962879968612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b916a55dbe955a34783a4c356bd4394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 1141084432814801856, guid: afd932fd4456f3043996dab8bc007812, type: 3}
 --- !u!1 &7155701385032720178
 GameObject:
   m_ObjectHideFlags: 0

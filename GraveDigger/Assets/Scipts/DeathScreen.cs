@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
@@ -31,5 +32,13 @@ public class DeathScreen : MonoBehaviour
             yield return null;
         }
         _canvasGroup.alpha = 1;
+    }
+
+    public void RestartGame()
+    {
+        if (_canvasGroup.alpha > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

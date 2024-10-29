@@ -20,6 +20,8 @@ public class DroppedMaterial : MonoBehaviour
     [SerializeField] private int _importance, _pickUpAmount = 1;
     private bool _controlPromptSent, _pickingThingsUp = false;
 
+    [SerializeField] private UnityEvent _onPickedUp;
+
     private void Update()
     {
         if (!CanBeSuckedUp())
@@ -52,6 +54,7 @@ public class DroppedMaterial : MonoBehaviour
     
     private void GetPickedUp()
     {
+        _onPickedUp?.Invoke();
         Destroy(gameObject);
     }
 

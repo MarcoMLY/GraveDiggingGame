@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 684287795779350026}
   - component: {fileID: 1309375298638583106}
   - component: {fileID: 3803049019229971974}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: GrassPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 5835542273412140915}
   - component: {fileID: 5167624796453667645}
   - component: {fileID: 5823156260278078333}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 8706727437552593507, guid: d409ee57c85d9554cb6d6d5f27f8b113, type: 3}
       propertyPath: m_Name
       value: YSort
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706727437552593507, guid: d409ee57c85d9554cb6d6d5f27f8b113, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

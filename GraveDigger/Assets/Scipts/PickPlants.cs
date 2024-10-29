@@ -33,10 +33,10 @@ public class PickPlants : MonoBehaviour
     public void AddNextPlantType()
     {
         Transform newPlant = Instantiate(_plantImage.gameObject, _plantImage.transform.position + new Vector3(_distances * _plantTransforms.Count, 0, 0), Quaternion.identity, transform).transform;
-        newPlant.GetComponent<Image>().sprite = _plantTypes[_plantTypes.Length - 1].Sprite;
-        newPlant.GetChild(0).GetComponent<TextMeshProUGUI>().text = _plantTypes[_plantTypes.Length - 1].FoodNeeded.ToString();
+        newPlant.GetComponent<Image>().sprite = _plantTypes[_plantTransforms.Count].Sprite;
+        newPlant.GetChild(0).GetComponent<TextMeshProUGUI>().text = _plantTypes[_plantTransforms.Count].FoodNeeded.ToString();
+        _plantTypeAddedText.text = "you got the " + _plantTypes[_plantTransforms.Count].name + " plant!";
         _plantTransforms.Add(newPlant);
-        _plantTypeAddedText.text = "you got the " + _plantTypes[_plantTypes.Length - 1].name + " plant!";
         _plantTypeAdded.SetTrigger("NewPlant");
     }
 

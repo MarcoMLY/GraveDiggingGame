@@ -12,6 +12,7 @@ public class Health : MonoBehaviour, IDameagable
 
     [SerializeField] protected UnityEvent _onDamaged;
     [SerializeField] protected UnityEvent _onDie;
+    [SerializeField] protected UnityEventTransform _onDieDirection;
 
     [SerializeField] protected LayerMask _immuneLayers;
     [SerializeField] protected float _immuneTime;
@@ -48,6 +49,7 @@ public class Health : MonoBehaviour, IDameagable
         if (CurrentHealth <= 0)
         {
             _onDie?.Invoke();
+            _onDieDirection?.Invoke(attacker.transform);
             return true;
         }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.HID;
 
 public class PlantShoot : MonoBehaviour
@@ -11,6 +12,10 @@ public class PlantShoot : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _sprite, _shootPos;
     private Transform _currentEnemy;
+
+    [SerializeField] private int _amountOfShots, _angle;
+
+    [SerializeField] private UnityEvent _plantShot;
 
     private void Awake()
     {
@@ -70,7 +75,15 @@ public class PlantShoot : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(_bullet, _shootPos.position, _sprite.rotation);
+        _plantShot?.Invoke();
+
+        float shootAngle = _sprite.eulerAngles.z - (_angle / 2);
+        for (int i = 0; i < _amountOfShots; i++)
+        {
+            Instantiate(_bullet, _shootPos.position, Quaternion.Euler(0, 0, shootAngle + ((_angle / _amountOfShots) * i)));
+        }
+
+        
         _waitTimer = _waitTime;
     }
 

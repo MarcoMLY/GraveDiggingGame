@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Data;
 
 public class PauseScene : MonoBehaviour
 {
     private float _timer;
+    private bool _paused;
+
+    [SerializeField] private BoolHolder _pausedHolder;
 
     private void Update()
     {
@@ -24,11 +28,15 @@ public class PauseScene : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0;
-    }
-
-    public void Unpause()
-    {
+        if (!_paused)
+        {
+            Time.timeScale = 0;
+            _paused = true;
+            _pausedHolder.ChangeData(_paused);
+            return;
+        }
         Time.timeScale = 1;
+        _paused = false;
+        _pausedHolder.ChangeData(_paused);
     }
 }

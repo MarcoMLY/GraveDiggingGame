@@ -17,6 +17,9 @@ public class PlayerMove : MonoBehaviour, IStateable
 
     private Vector2 _moveDirection;
 
+    [SerializeField] private AudioSource _footsteps;
+    private bool _playerStopped = true;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -49,12 +52,33 @@ public class PlayerMove : MonoBehaviour, IStateable
 
         bool turnTo = _moveDirection != Vector2.zero;
         _setVelocity.ChangeVelocity(_moveDirection, turnTo);
+
+        float moveMagnitude = _setVelocity.GetRBVelocity().magnitude;
+        if (moveMagnitude == 0)
+            Footsteps(false);
+        if (moveMagnitude > 0)
+            Footsteps(true);
     }
 
     // Update is called once per frame
     void Move(InputAction.CallbackContext context)
     {
-        _moveDirection = context.ReadValue<Vector2>() * _moveSpeed;
+        Vector2 moveAmount = context.ReadValue<Vector2>();
+        _moveDirection = moveAmount * _moveSpeed;
+    }
+
+    private void Footsteps(bool turnOnOrOff)
+    {
+        if (turnOnOrOff && _playerStopped)
+        {
+            _footsteps.Play();
+            _playerStopped = false;
+        }
+        if (!turnOnOrOff && !_playerStopped)
+        {
+            _footsteps.Stop();
+            _playerStopped = true;
+        }
     }
 
     public State HandleState()

@@ -110,6 +110,21 @@ MonoBehaviour:
   _controlPrompt: zombie meal         press E
   _importance: 1
   _pickUpAmount: 1
+  _onPickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 6938472ef070d9f4f94958cb07e22f14, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5469851007641333234
 MonoBehaviour:
   m_ObjectHideFlags: 0

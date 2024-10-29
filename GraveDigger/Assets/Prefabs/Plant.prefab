@@ -99,6 +99,18 @@ MonoBehaviour:
           m_StringArgument: PlantDamaged
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 72fd60c0401aa994e978c1199618a399, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlantDamaged
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -126,6 +138,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onDieDirection:
+    m_PersistentCalls:
+      m_Calls: []
   _immuneLayers:
     serializedVersion: 2
     m_Bits: 576
@@ -151,6 +166,23 @@ MonoBehaviour:
   _bullet: {fileID: 3506633037066328560, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
   _sprite: {fileID: 4827430122603372091}
   _shootPos: {fileID: 5047234307187599880}
+  _amountOfShots: 1
+  _angle: 0
+  _plantShot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ffdf70442114fa048a2e8f181a336bfc, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &6843379980812975947
 CircleCollider2D:
   m_ObjectHideFlags: 0

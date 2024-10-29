@@ -20,6 +20,34 @@ PrefabInstance:
       propertyPath: _colliderRadius
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 6938472ef070d9f4f94958cb07e22f14, type: 2}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventTriggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4135101206971556652, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -84,14 +112,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantMeal Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8375933278911931950, guid: a28d2e28472f93344aa0a31184556464, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5888262480975438256, guid: a28d2e28472f93344aa0a31184556464, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8750312176826866978, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 281931084387321794}
+      addedObject: {fileID: 295}
   m_SourcePrefab: {fileID: 100100000, guid: a28d2e28472f93344aa0a31184556464, type: 3}
 --- !u!212 &2208221141178252864 stripped
 SpriteRenderer:
@@ -103,7 +132,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8750312176826866978, guid: a28d2e28472f93344aa0a31184556464, type: 3}
   m_PrefabInstance: {fileID: 2866534351921470828}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281931084387321794
+--- !u!114 &295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
