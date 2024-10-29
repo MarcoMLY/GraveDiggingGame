@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: _pickUpAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: _controlPrompt
       value: plant meal         press E
       objectReference: {fileID: 0}
@@ -115,3 +119,4 @@ MonoBehaviour:
   - {fileID: 2208221141178252864}
   _sprites:
   - {fileID: 21300000, guid: 162f7b026e1122743942d1640282e740, type: 3}
+  _randomizeYFlip: 0

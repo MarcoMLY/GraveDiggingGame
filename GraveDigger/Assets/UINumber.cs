@@ -9,6 +9,7 @@ public class UINumber : MonoBehaviour
 {
     private TextMeshProUGUI _text;
     [SerializeField] private IntHolder _intHolder;
+    [SerializeField] private string _addOn;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,6 @@ public class UINumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = _intHolder.Variable.ToString();
+        _text.text = _intHolder.Variable.ToString() + _addOn;
     }
 }

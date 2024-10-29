@@ -17,7 +17,7 @@ public class DroppedMaterial : MonoBehaviour
     [SerializeField] private GameEventString _sendControlPrompt;
     [SerializeField] private GameEventString _endControlPrompt;
     [SerializeField] private string _controlPrompt;
-    [SerializeField] private int _importance;
+    [SerializeField] private int _importance, _pickUpAmount = 1;
     private bool _controlPromptSent, _pickingThingsUp = false;
 
     private void Update()
@@ -38,7 +38,7 @@ public class DroppedMaterial : MonoBehaviour
 
         if (_pickingThingsUp)
         {
-            _plantFoodHolder.AddAmount(1);
+            _plantFoodHolder.AddAmount(_pickUpAmount);
             _endControlPrompt.EventTriggered(_controlPrompt + "|" + _importance.ToString());
             GetPickedUp();
         }
