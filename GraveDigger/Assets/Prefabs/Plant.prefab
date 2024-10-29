@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootRadius: 8
-  _waitTime: 2
+  _waitTime: 1
   _lerpTime: 6
   _enemyLayer:
     serializedVersion: 2

@@ -274,8 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 9005441743195939236}
   _speed: 6
-  _duration: 1
-  _moveDuration: 0.5
+  _duration: 1.5
+  _moveDuration: 0.75
   _damage: 1
   _hitbox: {x: 0.5, y: 0}
   _onSpawn:
