@@ -92,8 +92,8 @@ public class WaveManagerScript : MonoBehaviour
 	public TMP_Text _waveText;
 
 
-	public int newZombies = 2;
-	public int currentZombies = 2;
+	public int newZombies = 4;
+	public int currentZombies = 0;
 	public int newGraves = 2;
 
 	public int currentWave = 0;
@@ -124,34 +124,35 @@ public class WaveManagerScript : MonoBehaviour
 			waveStarted = false;
 			pTime = Time.time;
 			currentWave += 1;
-			_waveText.text = currentWave.ToString();
-			newZombies = newZombies + 4 + currentWave * 2;
-			newGraves = currentWave;
+			_waveText.text = "Wave " + currentWave.ToString();
+			//newZombies = newZombies + 4 + currentWave * 2;
+			//newGraves = currentWave + 2;
 		}
 
 		if(!waveStarted && gravesDestroyed)
 		{
-			print("spawninggraves");
-			_waveText.text = Mathf.RoundToInt(0 - (pTime - Time.time)).ToString();
+			//print("spawninggraves");
+			Debug.Log((intermissionTime - (Time.time - pTime)).ToString());
+			_waveText.text = Mathf.RoundToInt(intermissionTime - (Time.time - pTime)).ToString();
 			if (Mathf.RoundToInt(Time.time - pTime) == intermissionTime)
 			{
-				print("entered if statement");
+				//print("entered if statement");
 				gravesDestroyed = false;
 				Spawn_Graves();
 			}
 		}
-		else if(!waveStarted && !gravesDestroyed)
+		if(!waveStarted && !gravesDestroyed)
 		{
 			//same number of zombies spawn at all graves
-			_waveText.text = currentWave.ToString();
+			_waveText.text = "Wave " + currentWave.ToString();
 			waveStarted = true;
 
 			StartCoroutine(Spawn_Zombies(0, _gravesList.Variable[0].transform));
 			for (int z = 0; z < _gravesList.Variable.Count - 1; z++)
 			{
-				for (int i = 0; i < newZombies - 1; i++)
+				for (int i = 0; i < newZombies; i++)
 				{
-					float t = Random.Range(0.05f, 2f);
+					float t = Random.Range(0.05f, 5f);
 					Transform graveToSpawnAt = _gravesList.Variable[z].transform;
 					Spawn_Zombies(t, graveToSpawnAt);
 				}
