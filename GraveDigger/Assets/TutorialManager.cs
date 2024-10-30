@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
 
     public void SpacePressed()
     {
-        if (!_foodTutorialEnded)
+        if (!_foodTutorialEnded && _foodTutorialStarted)
         {
             FinishTutorial(2);
             _foodTutorialEnded = true;
