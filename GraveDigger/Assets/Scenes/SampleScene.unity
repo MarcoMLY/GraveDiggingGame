@@ -2793,6 +2793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25eff04119a93dc459e8e7f14d8e65b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pausedHolder: {fileID: 11400000, guid: c1f62030a2f7eec459bca25a52ae958d, type: 2}
 --- !u!114 &507523368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9138,7 +9139,7 @@ MonoBehaviour:
   _attackLayer:
     serializedVersion: 2
     m_Bits: 4224
-  _damage: 128
+  _damage: 1
   _waitTime: 1
   _distanceToPlayer: 0.5
   _onPlayerAttack:
@@ -9671,6 +9672,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387865855f1840c4e9039e5bfa46391d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _plantTypes:
+  - {fileID: 11400000, guid: 545e0c122193cd4429de4863e3fc3e7d, type: 2}
+  - {fileID: 11400000, guid: 193b41fa467b8de408cb9134c4c6eee5, type: 2}
+  - {fileID: 11400000, guid: d485ddba76fb53047b73cda4a8721f34, type: 2}
+  _plantTypeIndex: {fileID: 11400000, guid: 446a6129888bc4f4b9a94ad68b9c0426, type: 2}
+  _plantImage: {fileID: 372719876}
+  _highlight: {fileID: 1704145648}
+  _foodAmount: {fileID: 648394235}
+  _higlightOffset: {x: 0.2, y: -0.2, z: 0}
+  _plantTypeAdded: {fileID: 916463426}
+  _plantTypeAddedText: {fileID: 916463424}
+  _distances: 3
 --- !u!114 &1469421935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11623,6 +11636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bed86c1958987c4f9ceafb6a12fcdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _intHolder: {fileID: 11400000, guid: e09490717d07a1e4f9e677df03bc2675, type: 2}
+  _addOn: 
 --- !u!1 &1837157996
 GameObject:
   m_ObjectHideFlags: 0
@@ -12315,6 +12330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6504d4be652ab984c8526ca8e530106a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 156811961}
+  _fadeTime: 2
 --- !u!114 &1905147275
 MonoBehaviour:
   m_ObjectHideFlags: 0
