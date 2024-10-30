@@ -33,6 +33,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5460685871078467842, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
+      propertyPath: _damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460685871078467842, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
       propertyPath: _hitbox.x
       value: 0.6
       objectReference: {fileID: 0}
@@ -42,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8622236077497368268, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8622236077497368268, guid: b7e3a66ee710a3a4793514d71fb15218, type: 3}
       propertyPath: m_LocalScale.x

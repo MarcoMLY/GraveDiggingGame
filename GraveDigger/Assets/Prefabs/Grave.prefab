@@ -273,11 +273,11 @@ GameObject:
   - component: {fileID: 3553551281436076737}
   - component: {fileID: 3390646563385731109}
   - component: {fileID: 606073536533255822}
-  - component: {fileID: 8089800329547491282}
   - component: {fileID: 4200558860796030729}
   - component: {fileID: 2655727805223786332}
-  - component: {fileID: -5279166658755296600}
   - component: {fileID: 2502743387551272768}
+  - component: {fileID: -5279166658755296600}
+  - component: {fileID: 1175794300171531058}
   m_Layer: 12
   m_Name: Grave
   m_TagString: Untagged
@@ -418,6 +418,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TotalHealth>k__BackingField: 8
   <CurrentHealth>k__BackingField: 0
+  _onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4200558860796030729}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GraveSpawned
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -445,6 +460,9 @@ MonoBehaviour:
           m_StringArgument: GraveDamaged
           m_BoolArgument: 0
         m_CallState: 2
+  _onDamagedDirection:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -491,20 +509,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 640
   _immuneTime: 0.5
---- !u!114 &8089800329547491282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496377269367212825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d33d98788dcd64bb666c787f005b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemy: {fileID: 6279234962879968612, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
-  _spawnTransform: {fileID: 7619740997445052304}
 --- !u!95 &4200558860796030729
 Animator:
   serializedVersion: 7
@@ -518,7 +522,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6b730655e8bcbbc43b03c9edb53ed648, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -541,19 +545,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _droppedMaterial: {fileID: 3259199452190006124, guid: 6d464ef6a3350da4db2b0cb1a4a248cc, type: 3}
   _dropChance: 100
---- !u!114 &-5279166658755296600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496377269367212825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96746d5e0d894f24a95efa7e9964bf7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transformList: {fileID: 11400000, guid: 2532d2b42d4cd164f8dd897b7adc3298, type: 2}
 --- !u!114 &2502743387551272768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +565,34 @@ MonoBehaviour:
   - {fileID: 21300000, guid: da5d01273cbd0524f906c0bf1606f91a, type: 3}
   - {fileID: 21300000, guid: 55aa6ded88dbc874d89b537e9de08b67, type: 3}
   _randomizeYFlip: 0
+--- !u!114 &-5279166658755296600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496377269367212825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96746d5e0d894f24a95efa7e9964bf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformList: {fileID: 11400000, guid: 2532d2b42d4cd164f8dd897b7adc3298, type: 2}
+--- !u!114 &1175794300171531058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496377269367212825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b19c3ab180e1b4c820d803fb9b4da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _protectionPointLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &3790873114217855801
 PrefabInstance:
   m_ObjectHideFlags: 0

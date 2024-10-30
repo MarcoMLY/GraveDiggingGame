@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Data;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.Interactions;
 
 public class WaveManagerScript : MonoBehaviour
@@ -85,14 +86,15 @@ public class WaveManagerScript : MonoBehaviour
 			clone.transform.position = spawnpoint;
 		}*/
 
-	public GameObject _zombiePrefab;
+	public GameObject _zombiePrefab, _coneZombie, _builderZombie;
 	public GameObject _gravePrefab;
 	public GameObject _zombieHolder;
-	public TransformListHolder _gravesList;
+	public TransformListHolder _gravesList, _zombieList;
 	public TMP_Text _waveText;
 
+	[SerializeField] private AnimationCurve _zombiesSpawned, _coneZombieChance, _builderZombieChance;
 
-	public int newZombies = 4;
+    public int newZombies = 4;
 	public int currentZombies = 0;
 	public int newGraves = 2;
 
@@ -101,26 +103,31 @@ public class WaveManagerScript : MonoBehaviour
 	public bool waveStarted = false;
 	public bool gravesDestroyed = true;
 
-	float intermissionTime = 10;
+	float intermissionTime = 20;
 
 	float pTime;
 	int spawnradius = 2;
 
+	[SerializeField] private UnityEvent _firstWaveStarted, _firstWaveEnded, _secondWaveStarted;
+
 	private void Start()
 	{
         _gravesList.ClearData();
+		_zombieList.ClearData();
         pTime = Time.time;
 	}
 
 	private void Update()
 	{
-		currentZombies = _zombieHolder.transform.childCount;
+		currentZombies = _zombieList.Variable.Count;
 		if (_gravesList.Variable.Count == 0)
 		{
 			gravesDestroyed = true;
 		}
 		if(currentZombies == 0 && waveStarted)
 		{
+			if (currentWave == 0)
+				_firstWaveEnded?.Invoke();
 			print("current zombies 0");
 			waveStarted = false;
 			pTime = Time.time;
@@ -130,49 +137,89 @@ public class WaveManagerScript : MonoBehaviour
 			//newGraves = currentWave + 2;
 		}
 
-		if(!waveStarted && gravesDestroyed)
-		{
+		//if (!waveStarted && gravesDestroyed)
+		//{
+		//	//print("spawninggraves");
+		//	_waveText.text = Mathf.RoundToInt(intermissionTime - (Time.time - pTime)).ToString();
+		//	//if (Mathf.RoundToInt(Time.time - pTime) == intermissionTime)
+		//	//{
+		//	//	//print("entered if statement");
+		//	//	gravesDestroyed = false;
+		//	//	Spawn_Graves();
+		//	//}
+		//}
+        if (!waveStarted)
+        {
 			//print("spawninggraves");
-			Debug.Log((intermissionTime - (Time.time - pTime)).ToString());
 			_waveText.text = Mathf.RoundToInt(intermissionTime - (Time.time - pTime)).ToString();
-			if (Mathf.RoundToInt(Time.time - pTime) == intermissionTime)
+			if (Mathf.RoundToInt(Time.time - pTime) >= intermissionTime)
 			{
-				//print("entered if statement");
-				gravesDestroyed = false;
-				Spawn_Graves();
-			}
+                Spawn_Graves();
+                waveStarted = true;
+                if (currentWave == 0)
+                    _firstWaveStarted?.Invoke();
+                if (currentWave == 1)
+                    _secondWaveStarted?.Invoke();
+            }
 		}
-		if(!waveStarted && !gravesDestroyed)
-		{
-			//same number of zombies spawn at all graves
-			_waveText.text = "Wave " + currentWave.ToString();
-			waveStarted = true;
+		//      if (!waveStarted && !gravesDestroyed)
+		//{
+		//	//same number of zombies spawn at all graves
+		//	_waveText.text = "Wave " + currentWave.ToString();
+		//	waveStarted = true;
 
-			StartCoroutine(Spawn_Zombies(0, _gravesList.Variable[0].transform));
-			for (int z = 0; z < _gravesList.Variable.Count - 1; z++)
-			{
-				for (int i = 0; i < newZombies; i++)
-				{
-					float t = Random.Range(0.05f, 5f);
-					Transform graveToSpawnAt = _gravesList.Variable[z].transform;
-					Spawn_Zombies(t, graveToSpawnAt);
-				}
-			}
-		}
-	}
+		//	for (int z = 0; z < _gravesList.Variable.Count; z++)
+		//	{
+		//		for (int i = 0; i < Mathf.RoundToInt(_zombiesSpawned.Evaluate(currentWave)); i++)
+		//		{
+		//			float t = Random.Range(0.05f, 5f);
+		//			Transform graveToSpawnAt = _gravesList.Variable[z].transform;
+		//			Spawn_Zombies(graveToSpawnAt);
+		//                  Spawn_Graves();
+		//              }
+		//	}
+		//}
+		if (waveStarted && currentZombies == 0)
+        {
+            //same number of zombies spawn at all graves
+            _waveText.text = "Wave " + currentWave.ToString();
+            for (int z = 0; z < _gravesList.Variable.Count; z++)
+            {
+                for (int i = 0; i < Mathf.RoundToInt(_zombiesSpawned.Evaluate(currentWave)); i++)
+                {
+                    float t = Random.Range(0.05f, 5f);
+                    Transform graveToSpawnAt = _gravesList.Variable[z].transform;
+                    Spawn_Zombies(graveToSpawnAt);
+                }
+            }
+        }
+    }
 
 	IEnumerator Spawn_Zombies(float t, Transform graveToSpawnAt)
 	{
 		yield return new WaitForSeconds(t);
+		GameObject zombie = _zombiePrefab;
+		float builderZombieChance = _builderZombieChance.Evaluate(currentWave);
+		if (Random.Range(0.00f, 1.00f) <= builderZombieChance)
+			zombie = _builderZombie;
+        float coneZombieChance = _coneZombieChance.Evaluate(currentWave);
+        if (Random.Range(0.00f, 1.00f) <= coneZombieChance)
+            zombie = _coneZombie;
+        int x = Random.Range(-spawnradius, spawnradius);
+        int y = Random.Range(-spawnradius, spawnradius);
+        Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
 
-		GameObject clone = Instantiate(_zombiePrefab);
-		clone.transform.SetParent(_zombieHolder.transform, false);
+        GameObject clone = Instantiate(_zombiePrefab, spawnpoint, Quaternion.identity, _zombieHolder.transform);
+    }
 
-		int x = Random.Range(-spawnradius, spawnradius);
-		int y = Random.Range(-spawnradius, spawnradius);
-		Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
-		clone.transform.position = spawnpoint;
-	}
+	private void Spawn_Zombies(Transform graveToSpawnAt)
+	{
+        int x = Random.Range(-spawnradius, spawnradius);
+        int y = Random.Range(-spawnradius, spawnradius);
+        Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
+
+        GameObject clone = Instantiate(_zombiePrefab, spawnpoint, Quaternion.identity, _zombieHolder.transform);
+    }
 
 	void Spawn_Graves()
 	{
