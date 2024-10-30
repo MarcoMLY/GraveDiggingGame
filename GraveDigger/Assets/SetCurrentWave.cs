@@ -8,7 +8,6 @@ public class SetCurrentWave : MonoBehaviour
 {
     [SerializeField] private WaveManagerScript _waveManager;
     [SerializeField] private IntHolder _intHolder;
-    [SerializeField] private int _currentWave;
 
     [SerializeField] private int[] _addNewPlant;
     private bool[] _plantRecieved;
@@ -21,10 +20,10 @@ public class SetCurrentWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _intHolder.ChangeData(_currentWave);
+        _intHolder.ChangeData(_waveManager.currentWave);
         for (int i = 0; i < _addNewPlant.Length; i++)
         {
-            if (_currentWave == _addNewPlant[i] && !_plantRecieved[i])
+            if (_waveManager.currentWave == _addNewPlant[i] && !_plantRecieved[i])
             {
                 _onNewPlant?.Invoke();
                 _plantRecieved[i] = true;
