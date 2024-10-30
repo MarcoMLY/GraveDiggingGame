@@ -209,7 +209,7 @@ public class WaveManagerScript : MonoBehaviour
         int y = Random.Range(-spawnradius, spawnradius);
         Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
 
-        GameObject clone = Instantiate(_zombiePrefab, spawnpoint, Quaternion.identity, _zombieHolder.transform);
+        GameObject clone = Instantiate(zombie, spawnpoint, Quaternion.identity, _zombieHolder.transform);
     }
 
 	private void Spawn_Zombies(Transform graveToSpawnAt)
