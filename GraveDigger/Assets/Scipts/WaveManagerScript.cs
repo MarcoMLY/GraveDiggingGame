@@ -214,11 +214,18 @@ public class WaveManagerScript : MonoBehaviour
 
 	private void Spawn_Zombies(Transform graveToSpawnAt)
 	{
+        GameObject zombie = _zombiePrefab;
+        float builderZombieChance = _builderZombieChance.Evaluate(currentWave);
+        if (Random.Range(0.00f, 1.00f) <= builderZombieChance)
+            zombie = _builderZombie;
+        float coneZombieChance = _coneZombieChance.Evaluate(currentWave);
+        if (Random.Range(0.00f, 1.00f) <= coneZombieChance)
+            zombie = _coneZombie;
         int x = Random.Range(-spawnradius, spawnradius);
         int y = Random.Range(-spawnradius, spawnradius);
         Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
 
-        GameObject clone = Instantiate(_zombiePrefab, spawnpoint, Quaternion.identity, _zombieHolder.transform);
+        GameObject clone = Instantiate(zombie, spawnpoint, Quaternion.identity, _zombieHolder.transform);
     }
 
 	void Spawn_Graves()
