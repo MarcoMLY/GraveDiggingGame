@@ -114,14 +114,18 @@ public class WaveManagerScript : MonoBehaviour
 
 	private void Update()
 	{
+		
+
 		currentZombies = _zombieHolder.transform.childCount;
+		//graves destroyed
 		if (_gravesList.Variable.Count == 0)
 		{
 			gravesDestroyed = true;
 		}
+		// new wave
 		if(currentZombies == 0 && waveStarted)
 		{
-			print("current zombies 0");
+			//print("current zombies 0");
 			waveStarted = false;
 			pTime = Time.time;
 			currentWave += 1;
@@ -129,11 +133,11 @@ public class WaveManagerScript : MonoBehaviour
 			//newZombies = newZombies + 4 + currentWave * 2;
 			//newGraves = currentWave + 2;
 		}
-
+		// nerw graves are spawning
 		if(!waveStarted && gravesDestroyed)
 		{
 			//print("spawninggraves");
-			Debug.Log((intermissionTime - (Time.time - pTime)).ToString());
+			//Debug.Log((intermissionTime - (Time.time - pTime)).ToString());
 			_waveText.text = Mathf.RoundToInt(intermissionTime - (Time.time - pTime)).ToString();
 			if (Mathf.RoundToInt(Time.time - pTime) == intermissionTime)
 			{
@@ -142,20 +146,28 @@ public class WaveManagerScript : MonoBehaviour
 				Spawn_Graves();
 			}
 		}
+		// new zombies are spawning
 		if(!waveStarted && !gravesDestroyed)
 		{
 			//same number of zombies spawn at all graves
 			_waveText.text = "Wave " + currentWave.ToString();
 			waveStarted = true;
+			//StartCoroutine(Spawn_Zombies(0, _gravesList.Variable[0].transform));
+			Debug.Log(_gravesList.Variable);
+			Debug.Log(_gravesList.Variable.Count.ToString());
 
-			StartCoroutine(Spawn_Zombies(0, _gravesList.Variable[0].transform));
+			//Spawn_ZombiesVoid(_gravesList.Variable[0].transform);
+
 			for (int z = 0; z < _gravesList.Variable.Count - 1; z++)
 			{
+				Debug.Log(_gravesList.Variable[z].ToString());
+				Debug.Log(_gravesList.Variable[z].transform.position.ToString());
 				for (int i = 0; i < newZombies; i++)
 				{
 					float t = Random.Range(0.05f, 5f);
 					Transform graveToSpawnAt = _gravesList.Variable[z].transform;
-					Spawn_Zombies(t, graveToSpawnAt);
+					//StartCoroutine(Spawn_Zombies(t, graveToSpawnAt));
+					Spawn_ZombiesVoid(_gravesList.Variable[0].transform);
 				}
 			}
 		}
@@ -185,6 +197,16 @@ public class WaveManagerScript : MonoBehaviour
 			GameObject clone = Instantiate(_gravePrefab);
 			clone.transform.position = new Vector3(x, y, 0);
 		}
+	}
+	void Spawn_ZombiesVoid(Transform graveToSpawnAt)
+	{
+		GameObject clone = Instantiate(_zombiePrefab);
+		clone.transform.SetParent(_zombieHolder.transform, false);
+
+		int x = Random.Range(-spawnradius, spawnradius);
+		int y = Random.Range(-spawnradius, spawnradius);
+		Vector3 spawnpoint = new Vector3(graveToSpawnAt.position.x + x, graveToSpawnAt.position.y + y, graveToSpawnAt.position.z);
+		clone.transform.position = spawnpoint;
 	}
 
 }
