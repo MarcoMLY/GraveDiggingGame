@@ -10,7 +10,9 @@ public class Health : MonoBehaviour, IDameagable
     [field: SerializeField] public float TotalHealth { get; protected set; }
     [field: SerializeField] public float CurrentHealth { get; protected set; }
 
+    [SerializeField] protected UnityEvent _onSpawn;
     [SerializeField] protected UnityEvent _onDamaged;
+    [SerializeField] protected UnityEventTransform _onDamagedDirection;
     [SerializeField] protected UnityEvent _onDie;
     [SerializeField] protected UnityEventTransform _onDieDirection;
 
@@ -23,6 +25,7 @@ public class Health : MonoBehaviour, IDameagable
 
     private void Awake()
     {
+        _onSpawn?.Invoke();
         if (CurrentHealth == 0)
             CurrentHealth = TotalHealth;
 

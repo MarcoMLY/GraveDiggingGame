@@ -40,7 +40,6 @@ public class DroppedMaterial : MonoBehaviour
 
         if (_pickingThingsUp)
         {
-            _plantFoodHolder.AddAmount(_pickUpAmount);
             _endControlPrompt.EventTriggered(_controlPrompt + "|" + _importance.ToString());
             GetPickedUp();
         }
@@ -54,6 +53,7 @@ public class DroppedMaterial : MonoBehaviour
     
     private void GetPickedUp()
     {
+        _plantFoodHolder.AddAmount(_pickUpAmount);
         _onPickedUp?.Invoke();
         Destroy(gameObject);
     }

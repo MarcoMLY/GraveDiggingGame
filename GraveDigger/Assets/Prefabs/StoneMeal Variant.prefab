@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2208221141178252864, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6041078560765575684, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: m_RootOrder
       value: 0

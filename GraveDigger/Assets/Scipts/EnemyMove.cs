@@ -15,7 +15,7 @@ public class EnemyMove : MonoBehaviour
     private AIDestinationSetter _destinationSetter;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _aiPath = GetComponent<AIPath>();
         _enemyAnimation = GetComponent<PlayerAnimation>();
