@@ -7,7 +7,7 @@ public class YSort : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
 
     // Start is called before the first frame update
-    void Awake()
+    void Update()
     {
         _renderer.sortingOrder = -(int)(transform.position.y * 100);
     }

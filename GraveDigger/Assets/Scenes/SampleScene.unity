@@ -512,15 +512,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 972115649688049670, guid: b5bd2d033b32ecd479e0bf4549449e37, type: 3}
       propertyPath: _sortableSprite.Array.data[0].RelativeOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 972115649688049670, guid: b5bd2d033b32ecd479e0bf4549449e37, type: 3}
       propertyPath: _sortableSprite.Array.data[1].RelativeOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 972115649688049670, guid: b5bd2d033b32ecd479e0bf4549449e37, type: 3}
       propertyPath: _sortableSprite.Array.data[2].RelativeOrder
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 972115649688049670, guid: b5bd2d033b32ecd479e0bf4549449e37, type: 3}
       propertyPath: _sortableSprite.Array.data[0].SpriteRenderer
