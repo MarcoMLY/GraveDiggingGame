@@ -6085,7 +6085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveManager: {fileID: 2129731799}
   _intHolder: {fileID: 11400000, guid: ad2e61d4c1593ea40b44f31af9d7600f, type: 2}
-  _currentWave: 0
   _addNewPlant: 0300000006000000
   _onNewPlant:
     m_PersistentCalls:
@@ -11024,7 +11023,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 24575
+    m_Bits: 90111
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: fd4b4df06c824a54fae2ebd2d601f75d, type: 2}
   m_TargetDisplay: 0
