@@ -10,7 +10,6 @@ public class AddToTransformList : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        _transformList.ClearData();
         _transformList.AddData(transform);
     }
 

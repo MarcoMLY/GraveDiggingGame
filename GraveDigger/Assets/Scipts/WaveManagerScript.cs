@@ -108,7 +108,8 @@ public class WaveManagerScript : MonoBehaviour
 
 	private void Start()
 	{
-		pTime = Time.time;
+        _gravesList.ClearData();
+        pTime = Time.time;
 	}
 
 	private void Update()
