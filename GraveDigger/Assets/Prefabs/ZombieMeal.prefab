@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066594ebf0c70804e8434476036dded0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colliderRadius: 1.2
+  _colliderRadius: 2
   _layerMask:
     serializedVersion: 2
     m_Bits: 64

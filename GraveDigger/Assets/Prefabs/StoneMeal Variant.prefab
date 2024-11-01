@@ -25,6 +25,10 @@ PrefabInstance:
       value: stone meal             press E
       objectReference: {fileID: 0}
     - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
+      propertyPath: _colliderRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

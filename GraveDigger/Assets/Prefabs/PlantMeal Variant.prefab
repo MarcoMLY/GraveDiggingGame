@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: _colliderRadius
-      value: 1.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: _onPickedUp.m_PersistentCalls.m_Calls.Array.size

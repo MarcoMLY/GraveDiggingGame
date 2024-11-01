@@ -27,5 +27,10 @@ public class MusicManager : MonoBehaviour
             drums.volume = 1;
         if (crystalHealthPercent <= _guitarHealthPercent)
             guituar.volume = 1;
+
+        if (drums.time != _melody.time)
+            drums.time = _melody.time;
+        if (guituar.time != _melody.time)
+            guituar.time = _melody.time;
     }
 }
