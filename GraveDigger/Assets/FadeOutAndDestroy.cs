@@ -21,7 +21,8 @@ public class FadeOutAndDestroy : MonoBehaviour
         _fadeOutTimer += Time.deltaTime;
         if (_fadeOutTimer < _fadeOutTime)
         {
-            _spriteRenderer.color = _gradient.Evaluate(_fadeOutTimer / _fadeOutTime);
+            if (_spriteRenderer != null)
+                _spriteRenderer.color = _gradient.Evaluate(_fadeOutTimer / _fadeOutTime);
             return;
         }
         Destroy(gameObject);

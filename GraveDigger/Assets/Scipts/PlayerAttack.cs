@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform _attackPos;
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _attackLayer;
-    [SerializeField] private int _damage;
+    [SerializeField] private float _damage;
     [SerializeField] private float _waitTime;
     [SerializeField] private float _distanceToPlayer;
     private CharacterManager _playerManager;
@@ -51,8 +51,8 @@ public class PlayerAttack : MonoBehaviour
         if (_waitTimer > 0)
             return;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _attackPos.position = transform.position + ((mousePos - transform.position) * _distanceToPlayer);
-        Collider2D[] collider = Physics2D.OverlapCircleAll(_attackPos.position, _radius, _attackLayer);
+        Vector3 attackPosition = transform.position + ((mousePos - transform.position).normalized * _distanceToPlayer);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackPosition, _radius, _attackLayer);
         bool succesful = false;
         foreach (Collider2D hit in collider)
         {

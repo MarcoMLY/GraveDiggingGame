@@ -70,11 +70,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 592264335
-  m_SortingLayer: -1
+  m_SortingLayerID: 1061422145
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.2}
+  m_Color: {r: 0.08235294, g: 0.09411765, b: 0.20784314, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,6 +205,8 @@ GameObject:
   - component: {fileID: 6599549503041678657}
   - component: {fileID: -1541131949906286259}
   - component: {fileID: 2673712790322385449}
+  - component: {fileID: -7735726434446230261}
+  - component: {fileID: 8992618635573652872}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -308,6 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TotalHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
+  _onSpawn:
+    m_PersistentCalls:
+      m_Calls: []
   _onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -333,6 +338,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: EnemyDamaged
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDamagedDirection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8992618635573652872}
+        m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
+        m_MethodName: SpawnSplat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   _onDie:
@@ -366,6 +386,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2673712790322385449}
+        m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
+        m_MethodName: SpawnSplat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -7735726434446230261}
         m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
         m_MethodName: SpawnSplat
         m_Mode: 0
@@ -453,7 +485,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 1.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -507,8 +539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHolder: {fileID: 11400000, guid: d44defa3c013fa84b9ef729164c7447f, type: 2}
   _houseDoorHolder: {fileID: 11400000, guid: 030dedfc69cb9414fb3cb41778826192, type: 2}
-  _chasePlayerDistance: 10
-  _chasePlantDistance: 4
+  _chasePlayerDistance: 6
+  _chasePlantDistance: 2.5
   _playerPriotitizeDistance: 1
   _player:
     serializedVersion: 2
@@ -578,6 +610,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bloodSplat: {fileID: 1141084432814801856, guid: afd932fd4456f3043996dab8bc007812, type: 3}
+  _particle: 0
+--- !u!114 &-7735726434446230261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279234962879968612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b916a55dbe955a34783a4c356bd4394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 180576609743660052, guid: f4c4aa390090385448e27e7b4d0054f5, type: 3}
+  _particle: 1
+--- !u!114 &8992618635573652872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279234962879968612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b916a55dbe955a34783a4c356bd4394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 4936965710459897892, guid: c6804ed59a0f10c4f8741b68eb647286, type: 3}
+  _particle: 1
 --- !u!1 &7155701385032720178
 GameObject:
   m_ObjectHideFlags: 0

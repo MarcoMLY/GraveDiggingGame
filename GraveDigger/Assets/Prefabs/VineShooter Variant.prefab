@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: _waitTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 913989357312956948, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
+      propertyPath: _shootRadius
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2897540009082362489, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: m_Name
       value: VineShooter Variant

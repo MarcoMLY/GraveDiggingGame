@@ -31,6 +31,8 @@ public class EnemyMove : MonoBehaviour
         Transform target = _houseDoorHolder.Variable;
         Transform closestPlant = FindCLosestPlant();
         float distance = Vector2.Distance(transform.position, _playerHolder.Variable.position);
+        if (!HasLineOfSightTransform(_playerHolder.Variable, 1))
+            distance = _chasePlayerDistance + 1;
         if (closestPlant != null)
         {
             if (distance > _chasePlayerDistance)
@@ -69,5 +71,11 @@ public class EnemyMove : MonoBehaviour
     {
         RaycastHit2D[] ray = Physics2D.RaycastAll(transform.position, (collider.transform.position - transform.position).normalized, _chasePlayerDistance, _zombies);
         return ray.Length <= 1;
+    }
+
+    private bool HasLineOfSightTransform(Transform collider, int passThrough)
+    {
+        RaycastHit2D[] ray = Physics2D.RaycastAll(transform.position, (collider.transform.position - transform.position).normalized, _chasePlayerDistance, _zombies);
+        return ray.Length <= 1 + passThrough;
     }
 }

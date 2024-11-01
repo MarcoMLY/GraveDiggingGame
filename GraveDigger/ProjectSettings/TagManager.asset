@@ -22,7 +22,7 @@ TagManager:
   - Shovel
   - Screen
   - Grass
-  - 
+  - Particles
   - 
   - 
   - 
@@ -41,11 +41,26 @@ TagManager:
   - name: Backround
     uniqueID: 592264335
     locked: 0
+  - name: OnBackround
+    uniqueID: 758877425
+    locked: 0
+  - name: Shadow
+    uniqueID: 1061422145
+    locked: 0
+  - name: Particles
+    uniqueID: 2027799903
+    locked: 0
+  - name: AboveParticles
+    uniqueID: 1128188407
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Foreground
     uniqueID: 1171342427
+    locked: 0
+  - name: SmallHealthBar
+    uniqueID: 1706208295
     locked: 0
   - name: UI
     uniqueID: 934341721

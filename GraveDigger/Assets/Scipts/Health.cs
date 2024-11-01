@@ -47,6 +47,7 @@ public class Health : MonoBehaviour, IDameagable
             return false;
 
         _onDamaged?.Invoke();
+        _onDamagedDirection?.Invoke(attacker.transform);
         CurrentHealth -= damage;
 
         if (CurrentHealth <= 0)

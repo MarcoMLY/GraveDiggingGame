@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4662395407801877703}
   - component: {fileID: 8626647764140296488}
   - component: {fileID: 1672225299102171052}
+  - component: {fileID: 3510849423058404753}
   m_Layer: 7
   m_Name: Hat
   m_TagString: Untagged
@@ -103,6 +104,21 @@ MonoBehaviour:
   _onHatDestroy:
     m_PersistentCalls:
       m_Calls: []
+  _onHatDestroyTransform:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3510849423058404753}
+        m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
+        m_MethodName: SpawnSplat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1672225299102171052
 Animator:
   serializedVersion: 7
@@ -125,6 +141,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3510849423058404753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475775664846509429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b916a55dbe955a34783a4c356bd4394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 6309446677081992352, guid: 8e8d82b2d535cef4b8e735b9a35452c3, type: 3}
+  _particle: 1
 --- !u!1001 &737004012925667598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,6 +216,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
       propertyPath: _onDamaged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -214,6 +248,18 @@ PrefabInstance:
       value: EventTriggered
       objectReference: {fileID: 0}
     - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8626647764140296488}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CheckOnHatDestroyTransforn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
       propertyPath: _onDamaged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
@@ -230,12 +276,24 @@ PrefabInstance:
       value: EnemyDamaged
       objectReference: {fileID: 0}
     - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Hat, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
       propertyPath: _onDamaged.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032496546589096849, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _onDamagedDirection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6279234962879968612, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
       propertyPath: m_Name
       value: ZombieWithCone Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599549503041678657, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
+      propertyPath: _dropChance
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7297855412477373009, guid: de556c417bf079e4897f3920d22a63cd, type: 3}
       propertyPath: _sortableSprite.Array.size

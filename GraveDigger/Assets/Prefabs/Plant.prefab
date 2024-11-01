@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 913989357312956948}
   - component: {fileID: 6843379980812975947}
   - component: {fileID: 1905035660241307826}
+  - component: {fileID: 108919068840228497}
   m_Layer: 10
   m_Name: Plant
   m_TagString: Untagged
@@ -84,6 +85,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TotalHealth>k__BackingField: 10
   <CurrentHealth>k__BackingField: 0
+  _onSpawn:
+    m_PersistentCalls:
+      m_Calls: []
   _onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -111,6 +115,9 @@ MonoBehaviour:
           m_StringArgument: PlantDamaged
           m_BoolArgument: 0
         m_CallState: 2
+  _onDamagedDirection:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -140,7 +147,19 @@ MonoBehaviour:
         m_CallState: 2
   _onDieDirection:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 108919068840228497}
+        m_TargetAssemblyTypeName: SpawnBloodSplat, Assembly-CSharp
+        m_MethodName: SpawnSplat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _immuneLayers:
     serializedVersion: 2
     m_Bits: 576
@@ -157,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fd02cbb75b41343925f1241e2b8343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootRadius: 8
+  _shootRadius: 10
   _waitTime: 1
   _lerpTime: 6
   _enemyLayer:
@@ -233,6 +252,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _droppedMaterial: {fileID: 6820881261841711182, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
   _dropChance: 100
+--- !u!114 &108919068840228497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897540009082362489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b916a55dbe955a34783a4c356bd4394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 7082176257140400292, guid: ae3162c5fac0051409adb34f355ba872, type: 3}
+  _particle: 1
 --- !u!1 &4473801457506805876
 GameObject:
   m_ObjectHideFlags: 0

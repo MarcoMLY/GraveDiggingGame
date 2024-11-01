@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: _pickUpAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2358072496404365411, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: _controlPrompt
@@ -63,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 4135101206971556652, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135101206971556652, guid: a28d2e28472f93344aa0a31184556464, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2027799903
       objectReference: {fileID: 0}
     - target: {fileID: 8363678461949304680, guid: a28d2e28472f93344aa0a31184556464, type: 3}
       propertyPath: m_RootOrder

@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 3c60568de8a238649b9e557734c4c102, type: 3}
     - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: _pickUpAmount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 540000668232375567, guid: 202d15859e4cafb479769ec2c018d369, type: 3}
       propertyPath: _controlPrompt

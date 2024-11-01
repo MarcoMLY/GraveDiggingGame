@@ -103,12 +103,12 @@ public class WaveManagerScript : MonoBehaviour
 	public bool waveStarted = false;
 	public bool gravesDestroyed = true;
 
-	float intermissionTime = 20;
+	float intermissionTime = 10;
 
 	float pTime;
 	int spawnradius = 2;
 
-	[SerializeField] private UnityEvent _firstWaveStarted, _firstWaveEnded, _secondWaveStarted;
+	[SerializeField] private UnityEvent _firstWaveStarted, _firstWaveEnded, _secondWaveStarted, _onWaveEnded;
 
 	private void Start()
 	{
@@ -128,7 +128,9 @@ public class WaveManagerScript : MonoBehaviour
 		{
 			if (currentWave == 0)
 				_firstWaveEnded?.Invoke();
-			print("current zombies 0");
+			_onWaveEnded?.Invoke();
+
+            print("current zombies 0");
 			waveStarted = false;
 			pTime = Time.time;
 			currentWave += 1;

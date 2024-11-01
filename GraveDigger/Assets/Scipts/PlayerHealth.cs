@@ -19,6 +19,12 @@ public class PlayerHealth : Health
         _currentHealth.ChangeData(CurrentHealth);
     }
 
+    public void Regenerate()
+    {
+        CurrentHealth = _maxHealth.Variable;
+        _currentHealth.ChangeData(CurrentHealth);
+    }
+
     public override bool Damage(float damage, GameObject attacker, bool overrideImmuneTime)
     {
         if (_immuneLayers.Contains(attacker.layer))
@@ -29,6 +35,7 @@ public class PlayerHealth : Health
             return false;
 
         _onDamaged?.Invoke();
+        _onDamagedDirection?.Invoke(attacker.transform);
         CurrentHealth -= damage;
 
         if (CurrentHealth <= 0)
@@ -51,5 +58,6 @@ public class PlayerHealth : Health
         {
             CurrentHealth = TotalHealth;
         }
+        _currentHealth.ChangeData(CurrentHealth);
     }
 }

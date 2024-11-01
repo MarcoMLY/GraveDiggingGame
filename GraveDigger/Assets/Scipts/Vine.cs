@@ -14,6 +14,8 @@ public class Vine : MonoBehaviour
     private bool _notMoving = false;
     //private TimerManager _timer;
 
+    [SerializeField] private GameObject _vineParticles;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -38,6 +40,12 @@ public class Vine : MonoBehaviour
     private void RenderVine()
     {
         _lineRenderer.SetPosition(1, transform.position);
+    }
+
+    public void SpawnVineParticles()
+    {
+        Transform particles = Instantiate(_vineParticles, transform.position, Quaternion.identity).transform;
+        particles.forward = transform.up;
     }
 
     // Update is called once per frame

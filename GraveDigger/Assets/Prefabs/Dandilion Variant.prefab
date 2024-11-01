@@ -25,6 +25,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 913989357312956948, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
+      propertyPath: _shootRadius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 913989357312956948, guid: 536b130d6e30f5941b7aff13437871a5, type: 3}
       propertyPath: _amountOfShots
       value: 6
       objectReference: {fileID: 0}
